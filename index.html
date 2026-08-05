@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Endüstriyel Çamaşır Makineleri İçin Teknik Servis</title>
+  <meta name="description" content="Endüstriyel çamaşırhane makineleri tamiri, periyodik bakımı ve orijinal yedek parça tedariği. Tolkar (Smartex) tecrübesi ve Tolon servis güvencesiyle profesyonel hizmet.">
+  
+  <!-- Tailwind CSS Output -->
+  <link rel="stylesheet" href="output.css">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased flex flex-col min-h-screen">
+
+
+
+  <!-- Sticky Main Navigation -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo Placeholder -->
+        <a href="index.html" class="flex items-center gap-3 group">
+          <div class="h-16 w-16 flex items-center justify-center">
+            <img src="sprites/logo.png" alt="BH Teknik Servis" class="max-h-16 max-w-full object-contain" onerror="this.onerror=null; this.parentNode.innerHTML='<div class=\'w-16 h-16 bg-blue-900 text-white rounded-md flex items-center justify-center text-2xl font-bold\'>BH</div>'">
+          </div>
+          <div class="flex items-center">
+            <span class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight uppercase">BH TEKNİK SERVİS</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden lg:flex items-center justify-center flex-1 gap-8 text-sm font-semibold text-slate-700">
+          <a href="#hizmetlerimiz" class="hover:text-blue-900 transition py-1">Hizmetler</a>
+          <a href="#urunler" class="hover:text-blue-900 transition py-1">Ürünler</a>
+          <a href="#kurumsal" class="hover:text-blue-900 transition py-1">Neden Biz</a>
+        </nav>
+
+        <!-- Right WhatsApp CTA -->
+        <div class="hidden sm:flex items-center gap-4">
+          <a href="https://wa.me/905510007069?text=Merhaba,%20teknik%20servis%20hakkinda%20bilgi%20almak%20istiyorum." 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="bg-emerald-600 hover:bg-emerald-700 text-white rounded-md px-4 py-2.5 text-sm font-semibold flex items-center gap-2 shadow-sm transition">
+            <i class="fa-brands fa-whatsapp text-lg"></i>
+            <span>WhatsApp İletişim</span>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <div class="flex lg:hidden">
+          <button id="mobile-menu-btn" type="button" class="p-2 rounded-md text-slate-700 hover:text-blue-900 hover:bg-slate-100 focus:outline-none">
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-3 shadow-lg">
+      <a href="#hizmetlerimiz" class="block text-slate-700 hover:text-blue-900 px-3 py-2 rounded-md hover:bg-slate-50">Hizmetler</a>
+      <a href="#urunler" class="block text-slate-700 hover:text-blue-900 px-3 py-2 rounded-md hover:bg-slate-50">Ürünler</a>
+      <a href="#kurumsal" class="block text-slate-700 hover:text-blue-900 px-3 py-2 rounded-md hover:bg-slate-50">Neden Biz</a>
+      <div class="pt-2 border-t border-slate-100">
+        <a href="https://wa.me/905510007069?text=Merhaba,%20bilgi%20almak%20istiyorum." 
+           target="_blank"
+           class="w-full bg-emerald-600 hover:bg-emerald-700 text-white rounded-md px-4 py-2.5 text-sm font-semibold flex items-center justify-center gap-2 shadow-sm">
+          <i class="fa-brands fa-whatsapp text-lg"></i>
+          <span>WhatsApp İletişim</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    
+    <!-- Hero Section (High Impact Commercial Ad Style) -->
+    <section class="relative bg-slate-900 text-white overflow-hidden py-20 lg:py-28">
+      <!-- Background Image Overlay & Gradient -->
+      <div class="absolute inset-0 z-0 opacity-40 bg-cover bg-center" style="background-image: url('sprites/background.png');"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-900/75 to-blue-950/65 z-0"></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-sky-950/80 border border-sky-500/30 text-sky-400 text-xs font-semibold mb-6 tracking-wide uppercase">
+            <i class="fa-solid fa-shield-halved text-sky-400"></i> TOLON Yetkili Servis Güvencesi
+          </div>
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6">
+            Endüstriyel Çamaşırhane Sistemlerinde <span class="text-sky-400">Teknik Servis Desteği</span> & Yedek Parça Temini
+          </h1>
+          <p class="text-lg sm:text-xl text-slate-300 font-normal leading-relaxed mb-8">
+            Tolkar Smartex tecrübesi ve Tolon yetkili servis güvencesiyle otel, hastane, tekstil ve endüstriyel tesisler için hızlı müdahale, orijinal parça temini ve uzman hizmetler.
+          </p>
+          
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <a href="#kurumsal" class="bg-gradient-to-r from-sky-600 to-blue-600 hover:from-sky-500 hover:to-blue-500 text-white font-bold text-base sm:text-lg px-8 py-4 rounded-md shadow-xl hover:shadow-sky-500/20 hover:scale-105 flex items-center justify-center gap-3 transition-all duration-300">
+              <i class="fa-solid fa-phone"></i>
+              <span>İletişim</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="urunler.html" class="bg-slate-800 hover:bg-slate-700 text-white border border-slate-600 font-semibold px-8 py-4 rounded-md shadow flex items-center justify-center gap-3 transition">
+              <i class="fa-solid fa-boxes-stacked"></i>
+              <span>Ürünlerimiz</span>
+            </a>
+          </div>
+
+          <!-- Quick Stats Bar -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-12 mt-12 border-t border-slate-800">
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold text-sky-400">15+ Yıl</div>
+              <div class="text-xs sm:text-sm text-slate-400 font-medium">Saha Tecrübesi</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold text-sky-400">%100</div>
+              <div class="text-xs sm:text-sm text-slate-400 font-medium">Sektör Standartlarında Parçalar</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-extrabold text-sky-400">MİNİMUM</div>
+              <div class="text-xs sm:text-sm text-slate-400 font-medium">Duruş Süresi</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Brands Showcase Bar -->
+    <section id="markalar" class="bg-slate-100 py-10 border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p class="text-center text-xs font-bold text-slate-500 uppercase tracking-widest mb-6">
+          Uzmanlık & Servis Sunduğumuz Başlıca Endüstriyel Markalar
+        </p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 items-center">
+          <a href="https://www.tolon.com" target="_blank" rel="noopener noreferrer" class="bg-white p-4 rounded-md border border-slate-200 shadow-sm flex items-center justify-center h-24 hover:border-blue-900 hover:shadow-md transition">
+            <img src="sprites/tolon_logo.webp" alt="Tolon" class="max-h-12 max-w-full object-contain" onerror="this.onerror=null; this.parentNode.innerHTML='<span class=\'text-xl font-black text-slate-800 tracking-wider\'>TOLON</span>'">
+          </a>
+          <a href="https://www.tolkar.com" target="_blank" rel="noopener noreferrer" class="bg-white p-4 rounded-md border border-slate-200 shadow-sm flex items-center justify-center h-24 hover:border-blue-900 hover:shadow-md transition">
+            <img src="sprites/tolkar_logo.png" alt="Tolkar" class="max-h-12 max-w-full object-contain" onerror="this.onerror=null; this.parentNode.innerHTML='<span class=\'text-xl font-black text-blue-900 tracking-wider\'>TOLKAR</span>'">
+          </a>
+          <a href="https://speedqueen.com" target="_blank" rel="noopener noreferrer" class="bg-white p-4 rounded-md border border-slate-200 shadow-sm flex items-center justify-center h-24 hover:border-blue-900 hover:shadow-md transition">
+            <img src="sprites/speedqueen_logo.png" alt="Speed Queen" class="max-h-20 max-w-full object-contain scale-150" onerror="this.onerror=null; this.parentNode.innerHTML='<span class=\'text-xl font-black text-slate-700 tracking-wider\'>SPEED QUEEN</span>'">
+          </a>
+          <a href="https://www.kromluks.com" target="_blank" rel="noopener noreferrer" class="bg-white p-4 rounded-md border border-slate-200 shadow-sm flex items-center justify-center h-24 hover:border-blue-900 hover:shadow-md transition">
+            <img src="sprites/kromluks_logo.png" alt="Kromlüks" class="max-h-12 max-w-full object-contain" onerror="this.onerror=null; this.parentNode.innerHTML='<span class=\'text-lg font-bold text-slate-800 tracking-wide\'>KROMLÜKS</span>'">
+          </a>
+          <a href="https://www.ondermakina.com.tr" target="_blank" rel="noopener noreferrer" class="bg-white p-4 rounded-md border border-slate-200 shadow-sm flex items-center justify-center h-24 hover:border-blue-900 hover:shadow-md transition">
+            <img src="sprites/önder_logo.png" alt="Önder" class="max-h-20 max-w-full object-contain scale-150" onerror="this.onerror=null; this.parentNode.innerHTML='<span class=\'text-lg font-bold text-slate-800 tracking-wide\'>ÖNDER</span>'">
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="hizmetlerimiz" class="py-16 bg-slate-100 border-t border-b border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-sky-600 font-bold text-xs uppercase tracking-widest block mb-2">Profesyonel Teknik Çözümler</span>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">Endüstriyel Servis Hizmetlerimiz</h2>
+          <p class="text-slate-600 text-base">
+            Otel, hastane, yurt, çamaşırhane ve tekstil yıkama tesisleriniz için profesyonel servis standartları.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Card 1 -->
+          <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition">
+            <div class="w-14 h-14 bg-blue-900/10 text-blue-900 rounded-md flex items-center justify-center text-2xl mb-6">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Arıza Tespiti</h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+              Tüm lider markaların elektronik, mekanik altyapılarına hakim uzman ekibimizle yerinde ve hızlı arıza tespiti.
+            </p>
+            <ul class="text-xs text-slate-500 space-y-1.5 font-medium">
+              <li><i class="fa-solid fa-check text-emerald-500 mr-1.5"></i> Minimum Duruş Süresi</li>
+              <li><i class="fa-solid fa-check text-emerald-500 mr-1.5"></i> Sahada Arıza Teşhisi</li>
+              <li><i class="fa-solid fa-check text-emerald-500 mr-1.5"></i> Hızlı tespit</li>
+            </ul>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition">
+            <div class="w-14 h-14 bg-sky-600/10 text-sky-600 rounded-md flex items-center justify-center text-2xl mb-6">
+              <i class="fa-solid fa-screwdriver-wrench"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Bakım & Onarım</h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+              Yılların saha tecrübesiyle, makinelerinizi orijinal standartlarında bakımlarını gerçekleştiriyor ve uzun ömürlü performans sağlıyoruz.
+            </p>
+            <ul class="text-xs text-slate-500 space-y-1.5 font-medium">
+              <li><i class="fa-solid fa-check text-emerald-500 mr-1.5"></i> Tecrübeli ve Uzman Kadro</li>
+              <li><i class="fa-solid fa-check text-emerald-500 mr-1.5"></i> Standartlara Uygun Parça Kullanımı</li>
+              <li><i class="fa-solid fa-check text-emerald-500 mr-1.5"></i> Teslim Öncesi Yerinde Testler</li>
+            </ul>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition">
+            <div class="w-14 h-14 bg-emerald-600/10 text-emerald-600 rounded-md flex items-center justify-center text-2xl mb-6">
+              <i class="fa-solid fa-box-open"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Yedek Parça</h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+              Tüm lider markalar için stoktan teslim yedek parça teminatı.
+            </p>
+            <ul class="text-xs text-slate-500 space-y-1.5 font-medium">
+              <li><i class="fa-solid fa-check text-emerald-500 mr-1.5"></i> Geniş Stok Yelpazesi</li>
+              <li><i class="fa-solid fa-check text-emerald-500 mr-1.5"></i> Hızlı Teslimat</li>
+              <li><i class="fa-solid fa-check text-emerald-500 mr-1.5"></i> Yerinde Montaj Desteği</li>
+            </ul>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition">
+            <div class="w-14 h-14 bg-amber-600/10 text-amber-600 rounded-md flex items-center justify-center text-2xl mb-6">
+              <i class="fa-solid fa-toolbox"></i>
+            </div>
+            <h3 class="text-lg font-bold text-slate-900 mb-2">Montaj & Kurulum</h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+              Makinelerinizin montajı, gerekli altyapı bağlantıları ve anahtar teslim kurulumu.
+            </p>
+            <ul class="text-xs text-slate-500 space-y-1.5 font-medium">
+              <li><i class="fa-solid fa-check text-emerald-500 mr-1.5"></i> Güvenli Konumlandırma</li>
+              <li><i class="fa-solid fa-check text-emerald-500 mr-1.5"></i> Altyapı Bağlantıları</li>
+              <li><i class="fa-solid fa-check text-emerald-500 mr-1.5"></i> Test & Devreye Alma</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section id="urunler" class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-12 max-w-3xl">
+          <span class="text-sky-600 font-bold text-xs uppercase tracking-widest block mb-2">Stoktan Teslim & Hızlı Tedarik</span>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">Öne Çıkan Ürünlerimiz</h2>
+        </div>
+
+        <!-- Dynamic Product Cards Grid Container -->
+        <div id="featured-products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <div class="mt-12 text-center">
+          <a href="urunler.html" class="inline-flex items-center gap-3 bg-blue-900 hover:bg-sky-600 text-white font-bold px-8 py-3.5 rounded-md shadow transition">
+            <span>Tüm Ürünleri Görüntüle</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Large Beautiful Contact Section -->
+    <section id="kurumsal" class="py-20 bg-slate-100 text-slate-900 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-sky-600 font-bold text-xs uppercase tracking-widest block mb-3">Teknik Destek & İletişim</span>
+          <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4 text-slate-900">Endüstriyel Çözüm İçin Bize Ulaşın</h2>
+          <p class="text-slate-600 text-base sm:text-lg">
+            Tolkar, Tolon ve diğer endüstriyel çamaşırhane makineleriniz için uzman ekibimizle hemen iletişime geçin.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <!-- Card 1: Telefonlar -->
+          <div class="bg-slate-50 border border-slate-200 p-8 rounded-xl shadow-sm hover:shadow-md hover:border-sky-500 transition duration-300 flex flex-col items-center text-center group">
+            <div class="w-16 h-16 bg-sky-600/10 text-sky-600 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition duration-300">
+              <i class="fa-solid fa-phone-volume"></i>
+            </div>
+            <h3 class="text-lg font-bold mb-2 text-slate-900">Telefon</h3>
+            <p class="text-slate-600 text-xs mb-6">Doğrudan telefon görüşmesi.</p>
+            <div class="w-full flex flex-col gap-3 mt-auto">
+              <a href="tel:+905510007069" class="w-full bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold px-4 py-2.5 rounded-lg shadow transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-phone text-xs"></i>
+                <span>551 000 70 69</span>
+              </a>
+              <a href="tel:+905422852312" class="w-full bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold px-4 py-2.5 rounded-lg shadow transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-phone text-xs"></i>
+                <span>542 285 23 12</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2: WhatsApplar -->
+          <div class="bg-slate-50 border border-slate-200 p-8 rounded-xl shadow-sm hover:shadow-md hover:border-emerald-500 transition duration-300 flex flex-col items-center text-center group">
+            <div class="w-16 h-16 bg-emerald-600/10 text-emerald-600 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition duration-300">
+              <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <h3 class="text-lg font-bold mb-2 text-slate-900">WhatsApp</h3>
+            <p class="text-slate-600 text-xs mb-6">Anlık mesajlaşma ve hızlı arıza bildirimi.</p>
+            <div class="w-full flex flex-col gap-3 mt-auto">
+              <a href="https://wa.me/905510007069?text=Merhaba,%20teknik%20servis%20talebi." target="_blank" rel="noopener noreferrer" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2.5 rounded-lg shadow transition flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-sm"></i>
+                <span>+90 551 000 70 69</span>
+              </a>
+              <a href="https://wa.me/905422852312?text=Merhaba,%20teknik%20servis%20talebi." target="_blank" rel="noopener noreferrer" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold px-4 py-2.5 rounded-lg shadow transition flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-sm"></i>
+                <span>+90 542 285 23 12</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3: E-posta -->
+          <div class="bg-slate-50 border border-slate-200 p-8 rounded-xl shadow-sm hover:shadow-md hover:border-sky-500 transition duration-300 flex flex-col items-center text-center group">
+            <div class="w-16 h-16 bg-blue-600/10 text-blue-900 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition duration-300">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <h3 class="text-lg font-bold mb-2 text-slate-900">E-Posta</h3>
+            <p class="text-slate-600 text-xs mb-6">Teklif ve kurumsal talepleriniz için.</p>
+            <div class="w-full flex flex-col gap-3 mt-auto">
+              <a href="mailto:bhteknik16@gmail.com" class="w-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-4 py-2.5 rounded-lg shadow transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-envelope text-xs"></i>
+                <span>bhteknik16@gmail.com</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 4: Adres -->
+          <div class="bg-slate-50 border border-slate-200 p-8 rounded-xl shadow-sm hover:shadow-md hover:border-amber-500 transition duration-300 flex flex-col items-center text-center group">
+            <div class="w-16 h-16 bg-amber-600/10 text-amber-600 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition duration-300">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <h3 class="text-lg font-bold mb-2 text-slate-900">Konum</h3>
+            <p class="text-slate-600 text-xs mb-6">Çamlık cd. Bursa/Osmangazi</p>
+            <div class="w-full flex flex-col gap-3 mt-auto">
+              <a href="https://maps.app.goo.gl/q9DuuDPvAMrDQcUw8" target="_blank" rel="noopener noreferrer" class="w-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-4 py-2.5 rounded-lg shadow transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-diamond-turn-right text-xs"></i>
+                <span>Haritada Yol Tarifi Al</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer & Contact Section -->
+    <footer id="iletisim" class="bg-slate-900 text-slate-300 pt-16 pb-8 border-t border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row items-start justify-between gap-12 pb-12 border-b border-slate-800">
+          
+          <!-- Company Info -->
+          <div class="max-w-md space-y-4">
+            <div class="flex items-center gap-3">
+  <div class="w-10 h-10 bg-blue-900 text-white rounded-md flex items-center justify-center text-lg font-bold">
+    <img src="sprites/logo.png" alt="BH" class="h-8 w-8 object-contain">
+  </div>
+              <div>
+                <span class="text-base font-bold text-white leading-tight uppercase block">BH TEKNİK SERVİS</span>
+                <span class="text-xs text-sky-400 font-semibold tracking-wider">ENDÜSTRİYEL ÇAMAŞIR VE KURUTMA MAKİNELERİ İÇİN YETKİLİ SERVİS</span>
+              </div>
+            </div>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Tolon, Tolkar Smartex gibi endüstriyel çamaşır makinesi sektöründeki lider markaların makineleri için servis, bakım ve yedek parça hizmeti.
+            </p>
+            <div class="pt-2 flex items-center gap-3">
+              <a href="https://wa.me/905510007069" target="_blank" class="w-9 h-9 bg-slate-800 hover:bg-emerald-600 text-white rounded-md flex items-center justify-center transition" title="WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i>
+              </a>
+              <a href="tel:+905510007069" class="w-9 h-9 bg-slate-800 hover:bg-sky-600 text-white rounded-md flex items-center justify-center transition" title="Telefon">
+                <i class="fa-solid fa-phone"></i>
+              </a>
+              <a href="mailto:bhteknik16@gmail.com" class="w-9 h-9 bg-slate-800 hover:bg-sky-600 text-white rounded-md flex items-center justify-center transition" title="E-Posta">
+                <i class="fa-solid fa-envelope"></i>
+              </a>
+              <a href="https://instagram.com/bh_teknik_tolon" target="_blank" class="w-9 h-9 bg-slate-800 hover:bg-pink-600 text-white rounded-md flex items-center justify-center transition" title="Instagram">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="space-y-3 md:text-right">
+            <h4 class="text-sm font-bold text-white uppercase tracking-wider">Hızlı Bağlantılar</h4>
+            <ul class="text-xs space-y-2">
+              <li><a href="index.html" class="hover:text-sky-400 transition">Ana Sayfa</a></li>
+              <li><a href="index.html#kurumsal" class="hover:text-sky-400 transition">Kurumsal</a></li>
+              <li><a href="index.html#hizmetlerimiz" class="hover:text-sky-400 transition">Hizmetlerimiz</a></li>
+              <li><a href="urunler.html" class="hover:text-sky-400 transition">Ürün Kataloğu</a></li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+          <p>© 2026 BH Teknik Servis. Tüm Hakkı Saklıdır.</p>
+          <div class="flex gap-4">
+            <a href="https://github.com/keroparator" target="_blank" rel="noopener noreferrer" class="underline hover:text-white transition">Made with Kerem Kahraman</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </main>
+
+
+
+  <!-- Script Includes -->
+  <script src="main.js"></script>
+  <script src="database.js"></script>
+  <script>
+    // Populate Featured Products from static database
+    document.addEventListener('DOMContentLoaded', async () => {
+      await renderFeaturedProducts();
+    });
+
+    async function renderFeaturedProducts() {
+      const container = document.getElementById('featured-products-grid');
+      if (!container) return;
+
+      try {
+        const products = await fetchProducts();
+
+        let featured = products.filter(p => p.isFeatured);
+        if (featured.length === 0) {
+          featured = products.slice(0, 4);
+        } else if (featured.length < 4) {
+          const remaining = products.filter(p => !p.isFeatured);
+          featured = [...featured, ...remaining].slice(0, 4);
+        } else {
+          featured = featured.slice(0, 4);
+        }
+
+        container.innerHTML = featured.map(product => `
+          <div class="bg-slate-50 border border-slate-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition flex flex-col h-full group">
+            <div class="relative bg-slate-200 h-48 overflow-hidden flex items-center justify-center p-3">
+              <img src="${product.image || 'sprites/logo.png'}" alt="${product.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='sprites/logo.png'">
+              <span class="absolute top-3 left-3 bg-blue-900 text-white text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wide">
+                ${product.category}
+              </span>
+            </div>
+            <div class="p-5 flex flex-col flex-grow justify-between space-y-4">
+              <div>
+                <h3 class="font-bold text-slate-900 text-base line-clamp-2 leading-snug group-hover:text-sky-600 transition">
+                  ${product.title}
+                </h3>
+                <p class="text-xs text-slate-600 mt-2 line-clamp-2 leading-relaxed">
+                  ${product.description}
+                </p>
+              </div>
+              
+              <div class="pt-3 border-t border-slate-200 flex items-center justify-between">
+                <div>
+                  <span class="text-[10px] text-slate-400 block font-semibold">FİYAT STATUSÜ</span>
+                  <span class="text-sm font-extrabold text-blue-900">Fiyat Alınız</span>
+                </div>
+                <a href="https://wa.me/905510007069?text=${encodeURIComponent(product.title + ' hakkında bilgi ve teklif almak istiyorum.')}" 
+                   target="_blank" 
+                   class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold px-3 py-2 rounded-md flex items-center gap-1.5 transition">
+                  <i class="fa-brands fa-whatsapp text-sm"></i>
+                  <span>Bilgi Al</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        `).join('');
+      } catch (error) {
+        console.error('Featured products fetch error:', error);
+      }
+    }
+  </script>
+</body>
+</html>

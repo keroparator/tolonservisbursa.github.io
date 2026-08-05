@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin CMS Paneli | BH Teknik Servis</title>
+  
+  <!-- Tailwind CSS Output -->
+  <link rel="stylesheet" href="output.css">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased min-h-screen flex flex-col">
+
+  <!-- AUTH MODAL OVERLAY (Initial Login) -->
+  <div id="auth-modal" class="fixed inset-0 z-50 bg-slate-900/90 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-lg shadow-2xl border border-slate-200 w-full max-w-md p-6 sm:p-8">
+      <div class="text-center mb-6">
+        <div class="w-16 h-16 bg-blue-900 text-white rounded-md flex items-center justify-center text-2xl mx-auto mb-3 shadow">
+          <i class="fa-solid fa-lock"></i>
+        </div>
+        <h2 class="text-xl font-extrabold text-slate-900">Admin Girişi</h2>
+        <p class="text-xs text-slate-500 mt-1">Ürün yönetim paneline erişmek için şifrenizi giriniz.</p>
+      </div>
+
+      <form id="auth-form" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Yönetici Şifresi</label>
+          <input type="password" 
+                 id="auth-password" 
+                 required 
+                  placeholder="Yönetici şifresini giriniz" 
+                 class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-md text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-900">
+          <p id="auth-error" class="hidden text-xs font-semibold text-rose-600 mt-1">Hatalı şifre! Tekrar deneyiniz.</p>
+        </div>
+
+        <button type="submit" class="w-full bg-blue-900 hover:bg-sky-600 text-white font-bold py-3 rounded-md shadow transition flex items-center justify-center gap-2">
+          <i class="fa-solid fa-right-to-bracket"></i>
+          <span>Giriş Yap</span>
+        </button>
+      </form>
+
+      <div class="mt-6 pt-4 border-t border-slate-100 text-center">
+        <a href="index.html" class="text-xs text-slate-500 hover:text-blue-900 font-semibold transition">
+          <i class="fa-solid fa-arrow-left mr-1"></i> Web Sitesine Geri Dön
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN ADMIN CONTENT (Hidden until authenticated) -->
+  <div id="admin-panel" class="hidden flex-grow flex flex-col">
+    
+    <!-- Admin Top Navbar -->
+    <header class="bg-slate-900 text-white border-b border-slate-800 shadow">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 bg-sky-600 text-white rounded-md flex items-center justify-center text-base font-bold">
+              <i class="fa-solid fa-screwdriver-wrench"></i>
+            </div>
+            <div>
+              <span class="text-sm font-extrabold text-white tracking-tight uppercase">BH TEKNİK SERVİS</span>
+              <span class="text-[10px] text-sky-400 font-semibold tracking-wider block">YÖNETİM PANELİ (CMS)</span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <a href="index.html" target="_blank" class="text-xs text-slate-300 hover:text-white flex items-center gap-1.5 font-medium transition">
+              <i class="fa-solid fa-globe"></i>
+              <span class="hidden sm:inline">Siteyi Görüntüle</span>
+            </a>
+            <a href="urunler.html" target="_blank" class="text-xs text-slate-300 hover:text-white flex items-center gap-1.5 font-medium transition">
+              <i class="fa-solid fa-boxes-stacked"></i>
+              <span class="hidden sm:inline">Katalog</span>
+            </a>
+            <button id="logout-btn" class="bg-slate-800 hover:bg-rose-700 text-white text-xs font-semibold px-3 py-1.5 rounded-md transition border border-slate-700 flex items-center gap-1.5">
+              <i class="fa-solid fa-right-from-bracket"></i>
+              <span>Çıkış Yap</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Admin Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex-grow">
+      
+      <!-- Dashboard Overview Stats -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm flex items-center justify-between">
+          <div>
+            <span class="text-xs font-bold text-slate-500 uppercase">Toplam Ürün</span>
+            <div id="stat-total" class="text-2xl font-black text-slate-900 mt-1">0</div>
+          </div>
+          <div class="w-12 h-12 bg-blue-900/10 text-blue-900 rounded-md flex items-center justify-center text-xl">
+            <i class="fa-solid fa-box"></i>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm flex items-center justify-between">
+          <div>
+            <span class="text-xs font-bold text-slate-500 uppercase">Makineler</span>
+            <div id="stat-machines" class="text-2xl font-black text-sky-600 mt-1">0</div>
+          </div>
+          <div class="w-12 h-12 bg-sky-600/10 text-sky-600 rounded-md flex items-center justify-center text-xl">
+            <i class="fa-solid fa-industry"></i>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm flex items-center justify-between">
+          <div>
+            <span class="text-xs font-bold text-slate-500 uppercase">Yedek Parçalar</span>
+            <div id="stat-parts" class="text-2xl font-black text-emerald-600 mt-1">0</div>
+          </div>
+          <div class="w-12 h-12 bg-emerald-600/10 text-emerald-600 rounded-md flex items-center justify-center text-xl">
+            <i class="fa-solid fa-gears"></i>
+          </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-lg border border-slate-200 shadow-sm flex items-center justify-between">
+          <div>
+            <span class="text-xs font-bold text-slate-500 uppercase">Öne Çıkarılan</span>
+            <div id="stat-featured" class="text-2xl font-black text-amber-600 mt-1">0</div>
+          </div>
+          <div class="w-12 h-12 bg-amber-600/10 text-amber-600 rounded-md flex items-center justify-center text-xl">
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Controls Bar -->
+      <div class="bg-white p-4 rounded-lg border border-slate-200 shadow-sm mb-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+          <i class="fa-solid fa-list-check text-blue-900"></i>
+          <span>Ürün Listesi & Yönetimi</span>
+        </h2>
+        
+        <div class="flex items-center gap-3 w-full sm:w-auto">
+          <button id="add-product-btn" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-4 py-2.5 rounded-md shadow transition flex items-center justify-center gap-2 flex-grow sm:flex-grow-0">
+            <i class="fa-solid fa-plus text-sm"></i>
+            <span>Yeni Ürün Ekle</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Products Management Table -->
+      <div class="bg-white rounded-lg border border-slate-200 shadow-sm overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs text-slate-700">
+            <thead class="bg-slate-900 text-slate-300 uppercase font-bold text-[11px] tracking-wider border-b border-slate-800">
+              <tr>
+                <th scope="col" class="px-4 py-3.5">Görsel</th>
+                <th scope="col" class="px-4 py-3.5">Ürün Adı</th>
+                <th scope="col" class="px-4 py-3.5">Kategori</th>
+                <th scope="col" class="px-4 py-3.5">Açıklama</th>
+                <th scope="col" class="px-4 py-3.5">Öne Çıkan</th>
+                <th scope="col" class="px-4 py-3.5 text-right">İşlemler</th>
+              </tr>
+            </thead>
+            <tbody id="admin-product-rows" class="divide-y divide-slate-200">
+              <!-- Dynamically populated via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- ADD / EDIT PRODUCT MODAL -->
+  <div id="product-modal" class="hidden fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white rounded-lg shadow-2xl border border-slate-200 w-full max-w-lg p-6 sm:p-8 my-8">
+      <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-100">
+        <h3 id="modal-title" class="text-base font-extrabold text-slate-900">Yeni Ürün Ekle</h3>
+        <button id="close-modal-btn" class="text-slate-400 hover:text-slate-700 p-1">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <form id="product-form" class="space-y-4">
+        <input type="hidden" id="product-id">
+        
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Ürün Başlığı *</label>
+          <input type="text" 
+                 id="product-title" 
+                 required 
+                 placeholder="Örn: Tolon TD 40 Kurutma Makinesi" 
+                 class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-md text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-900">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Kategori *</label>
+            <select id="product-category" required class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-md text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-900">
+              <option value="Makineler">Makineler</option>
+              <option value="Yedek Parçalar">Yedek Parçalar</option>
+              <option value="Sarf Malzemeleri">Sarf Malzemeleri</option>
+            </select>
+          </div>
+
+          <div class="flex items-center pt-6">
+            <label class="relative flex items-center gap-2 cursor-pointer">
+              <input type="checkbox" id="product-featured" class="w-4 h-4 text-blue-900 rounded border-slate-300 focus:ring-blue-900">
+              <span class="text-xs font-bold text-slate-700 uppercase">Öne Çıkan Ürün Yap</span>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Resim URL'si</label>
+          <input type="text" 
+                 id="product-image" 
+                 placeholder="https://placehold.co/600x400/..." 
+                 class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-md text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-900">
+          <p class="text-[11px] text-slate-400 mt-1">Boş bırakılırsa varsayılan görsel atanır.</p>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Açıklama</label>
+          <textarea id="product-description" 
+                    rows="3" 
+                    placeholder="Teknik detaylar ve özellikler..." 
+                    class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-md text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-900"></textarea>
+        </div>
+
+        <div class="flex items-center justify-end gap-3 pt-4 border-t border-slate-100">
+          <button type="button" id="cancel-modal-btn" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold px-4 py-2.5 rounded-md text-xs transition">
+            İptal
+          </button>
+          <button type="submit" id="save-product-btn" class="bg-blue-900 hover:bg-sky-600 text-white font-bold px-6 py-2.5 rounded-md text-xs shadow transition flex items-center gap-2">
+            <i class="fa-solid fa-check"></i>
+            <span>Kaydet</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="main.js"></script>
+  <script src="database.js"></script>
+  <script>
+    let currentAdminProducts = [];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Check session auth
+      const isAuth = sessionStorage.getItem('bh_admin_auth') === 'true';
+      if (isAuth) {
+        showAdminPanel();
+      }
+
+      // Auth form handler
+      const authForm = document.getElementById('auth-form');
+      if (authForm) {
+        authForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const pwd = document.getElementById('auth-password').value;
+          if (pwd === 'BHteknik16') {
+            sessionStorage.setItem('bh_admin_auth', 'true');
+            showAdminPanel();
+          } else {
+            const errEl = document.getElementById('auth-error');
+            if (errEl) errEl.classList.remove('hidden');
+          }
+        });
+      }
+
+      // Logout handler
+      const logoutBtn = document.getElementById('logout-btn');
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', () => {
+          sessionStorage.removeItem('bh_admin_auth');
+          location.reload();
+        });
+      }
+
+      // Modal controls
+      const addBtn = document.getElementById('add-product-btn');
+      const closeBtn = document.getElementById('close-modal-btn');
+      const cancelBtn = document.getElementById('cancel-modal-btn');
+      const modal = document.getElementById('product-modal');
+
+      if (addBtn) {
+        addBtn.addEventListener('click', () => openProductModal());
+      }
+      if (closeBtn) {
+        closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
+      }
+      if (cancelBtn) {
+        cancelBtn.addEventListener('click', () => modal.classList.add('hidden'));
+      }
+
+      // Product Form Submit Handler (Create or Update)
+      const productForm = document.getElementById('product-form');
+      if (productForm) {
+        productForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const id = document.getElementById('product-id').value;
+          const title = document.getElementById('product-title').value;
+          const category = document.getElementById('product-category').value;
+          const isFeatured = document.getElementById('product-featured').checked;
+          const image = document.getElementById('product-image').value || 'https://placehold.co/600x400/1e3a8a/ffffff?text=BH+Teknik+Servis';
+          const description = document.getElementById('product-description').value;
+
+          const payload = { title, category, isFeatured, image, description };
+
+          try {
+            if (id) {
+              // Update (PUT)
+              await apiUpdateProduct(id, payload);
+            } else {
+              // Create (POST)
+              await apiCreateProduct(payload);
+            }
+            modal.classList.add('hidden');
+            await loadAndRenderAdminData();
+          } catch (error) {
+            alert('İşlem başarısız: ' + error.message);
+          }
+        });
+      }
+    });
+
+    async function showAdminPanel() {
+      const authModal = document.getElementById('auth-modal');
+      const adminPanel = document.getElementById('admin-panel');
+      if (authModal) authModal.classList.add('hidden');
+      if (adminPanel) adminPanel.classList.remove('hidden');
+
+      await loadAndRenderAdminData();
+    }
+
+    async function loadAndRenderAdminData() {
+      currentAdminProducts = await fetchProducts();
+      renderAdminStats(currentAdminProducts);
+      renderAdminTable(currentAdminProducts);
+    }
+
+    function renderAdminStats(products) {
+      const totalEl = document.getElementById('stat-total');
+      const machinesEl = document.getElementById('stat-machines');
+      const partsEl = document.getElementById('stat-parts');
+      const featuredEl = document.getElementById('stat-featured');
+
+      if (totalEl) totalEl.textContent = products.length;
+      if (machinesEl) machinesEl.textContent = products.filter(p => p.category === 'Makineler').length;
+      if (partsEl) partsEl.textContent = products.filter(p => p.category === 'Yedek Parçalar' || p.category === 'Sarf Malzemeleri').length;
+      if (featuredEl) featuredEl.textContent = products.filter(p => p.isFeatured).length;
+    }
+
+    function renderAdminTable(products) {
+      const tbody = document.getElementById('admin-product-rows');
+      if (!tbody) return;
+
+      if (!products || products.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6" class="px-4 py-8 text-center text-slate-400">Henüz ürün eklenmemiş.</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = products.map(product => `
+        <tr class="hover:bg-slate-50 transition">
+          <td class="px-4 py-3">
+            <img src="${product.image}" alt="" class="w-12 h-10 object-cover rounded border border-slate-200" onerror="this.src='https://placehold.co/100x100/1e3a8a/ffffff?text=BH'">
+          </td>
+          <td class="px-4 py-3 font-bold text-slate-900 max-w-xs truncate">
+            ${escapeHtml(product.title)}
+          </td>
+          <td class="px-4 py-3">
+            <span class="bg-blue-50 text-blue-900 px-2.5 py-1 rounded-md font-semibold text-[11px] border border-blue-100">
+              ${escapeHtml(product.category)}
+            </span>
+          </td>
+          <td class="px-4 py-3 text-slate-500 max-w-xs truncate">
+            ${escapeHtml(product.description || '-')}
+          </td>
+          <td class="px-4 py-3">
+            ${product.isFeatured 
+              ? '<span class="bg-amber-100 text-amber-800 px-2 py-0.5 rounded text-[10px] font-bold"><i class="fa-solid fa-star"></i> Öne Çıkan</span>' 
+              : '<span class="text-slate-400">-</span>'}
+          </td>
+          <td class="px-4 py-3 text-right space-x-2">
+            <button onclick="editProduct('${product.id}')" class="bg-sky-50 hover:bg-sky-100 text-sky-700 px-2.5 py-1.5 rounded text-xs font-bold transition border border-sky-200" title="Düzenle">
+              <i class="fa-solid fa-pen-to-square"></i> Düzenle
+            </button>
+            <button onclick="deleteProductItem('${product.id}')" class="bg-rose-50 hover:bg-rose-100 text-rose-700 px-2.5 py-1.5 rounded text-xs font-bold transition border border-rose-200" title="Sil">
+              <i class="fa-solid fa-trash"></i> Sil
+            </button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    function openProductModal(product = null) {
+      const modal = document.getElementById('product-modal');
+      const modalTitle = document.getElementById('modal-title');
+      const idInput = document.getElementById('product-id');
+      const titleInput = document.getElementById('product-title');
+      const catInput = document.getElementById('product-category');
+      const featInput = document.getElementById('product-featured');
+      const imgInput = document.getElementById('product-image');
+      const descInput = document.getElementById('product-description');
+
+      if (product) {
+        modalTitle.textContent = 'Ürünü Düzenle (PUT)';
+        idInput.value = product.id;
+        titleInput.value = product.title || '';
+        catInput.value = product.category || 'Makineler';
+        featInput.checked = Boolean(product.isFeatured);
+        imgInput.value = product.image || '';
+        descInput.value = product.description || '';
+      } else {
+        modalTitle.textContent = 'Yeni Ürün Ekle (POST)';
+        idInput.value = '';
+        titleInput.value = '';
+        catInput.value = 'Makineler';
+        featInput.checked = false;
+        imgInput.value = '';
+        descInput.value = '';
+      }
+
+      modal.classList.remove('hidden');
+    }
+
+    function editProduct(id) {
+      const product = currentAdminProducts.find(p => p.id === id);
+      if (product) {
+        openProductModal(product);
+      }
+    }
+
+    async function deleteProductItem(id) {
+      if (!confirm('Bu ürünü silmek istediğinize emin misiniz?')) return;
+      try {
+        await apiDeleteProduct(id);
+        await loadAndRenderAdminData();
+      } catch (error) {
+        alert('Silme başarısız: ' + error.message);
+      }
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+  </script>
+</body>
+</html>
