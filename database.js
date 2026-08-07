@@ -49,7 +49,7 @@ async function apiCreateProduct(productData) {
     title: productData.title ? productData.title.trim() : '',
     description: productData.description ? productData.description.trim() : '',
     category: productData.category ? productData.category.trim() : 'Makineler',
-    image: productData.image ? productData.image.trim() : 'sprites/logo.png',
+    image: productData.image ? productData.image.trim() : 'sprites/logo.webp',
     isFeatured: Boolean(productData.isFeatured)
   };
   products.unshift(newProduct);
@@ -103,12 +103,12 @@ function renderProductCards(products, containerElement) {
       ? `<span class="absolute top-3 left-3 bg-amber-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider shadow-sm flex items-center gap-1"><i class="fa-solid fa-star text-[9px]"></i> Öne Çıkan</span>` 
       : '';
 
-    const imgSrc = product.image || 'sprites/logo.png';
+    const imgSrc = product.image || 'sprites/logo.webp';
 
     return `
       <div class="bg-white rounded-lg border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col overflow-hidden group">
         <div class="relative h-48 bg-slate-50 flex items-center justify-center p-4 overflow-hidden border-b border-slate-100">
-          <img src="${imgSrc}" alt="${escapeHtml(product.title)}" class="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-300" onerror="this.src='sprites/logo.png'">
+          <img src="${imgSrc}" alt="${escapeHtml(product.title)}" class="max-h-full max-w-full object-contain group-hover:scale-105 transition duration-300" onerror="this.src='sprites/logo.webp'">
           ${badgeHtml}
           <div class="absolute bottom-3 right-3 bg-slate-900/85 backdrop-blur text-white text-[11px] font-semibold px-2.5 py-1 rounded-md">
             ${escapeHtml(product.category)}
