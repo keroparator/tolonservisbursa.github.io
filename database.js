@@ -5,76 +5,14 @@
 window.DATABASE_PRODUCTS = [
   {
     id: 'prod-1',
-    title: 'Tolkar Smartex HY 60 Endüstriyel Yıkama Sıkma Makinesi',
-    category: 'Makineler',
-    description: '60 kg kapasiteli, akıllı titreşim sönümleme sistemli, yüksek devirli endüstriyel yıkama ve sıkma makinesi.',
-    price: 'Fiyat Alınız',
-    image: 'sprites/tolkar_logo.png',
-    isFeatured: true
-  },
-  {
-    id: 'prod-2',
-    title: 'Tolon TD 40 Endüstriyel Kurutma Makinesi',
-    category: 'Makineler',
-    description: '40 kg tam paslanmaz çelik tamburlu, yüksek nem sensörlü ve enerji tasarruflu profesyonel kurutma makinesi.',
+    title: 'Test-Ürün',
+    category: 'Yedek Parçalar',
+    description: 'Test-Description',
     price: 'Fiyat Alınız',
     image: 'sprites/tolon_logo.webp',
     isFeatured: true
   },
-  {
-    id: 'prod-3',
-    title: 'Girbau HS-6013 Endüstriyel Yıkama Makinesi',
-    category: 'Makineler',
-    description: '13 kg kapasiteli, otel ve hastane kullanımı için ağır hizmet tipi, yüksek sıkma performanslı yıkama makinesi.',
-    price: 'Fiyat Alınız',
-    image: 'sprites/logo.png',
-    isFeatured: true
-  },
-  {
-    id: 'prod-4',
-    title: 'Electrolux Professional IC43316 Silindir Ütü',
-    category: 'Makineler',
-    description: '3.15 metre silindir genişliği ile yüksek kapasiteli otel nevresim ve masa örtüsü silindir ütüleme sistemi.',
-    price: 'Fiyat Alınız',
-    image: 'sprites/logo.png',
-    isFeatured: true
-  },
-  {
-    id: 'prod-5',
-    title: 'Tolkar Smartex Inverter Sürücü Kartı (OEM)',
-    category: 'Yedek Parçalar',
-    description: 'Orijinal Tolkar Smartex serisi yıkama makineleri ile %100 uyumlu mikroişlemcili motor hız kontrol kartı.',
-    price: '18.500 ₺',
-    image: 'sprites/tolkar_logo.png',
-    isFeatured: false
-  },
-  {
-    id: 'prod-6',
-    title: 'Tolon Su Giriş Ventili Grubu (3/4" Çiftli)',
-    category: 'Yedek Parçalar',
-    description: 'Tolon endüstriyel çamaşırhaneler için yüksek basınca dayanıklı pirinç gövdeli selenoid su vanası.',
-    price: '2.450 ₺',
-    image: 'sprites/tolon_logo.webp',
-    isFeatured: false
-  },
-  {
-    id: 'prod-7',
-    title: 'Girbau & Electrolux Tambur Rulman Seti & Keçe',
-    category: 'Yedek Parçalar',
-    description: 'Ağır hizmet şartlarına uygun SKF rulman ve yüksek ısıya dayanıklı viton sızdırmazlık keçe takımı.',
-    price: '4.800 ₺',
-    image: 'sprites/logo.png',
-    isFeatured: false
-  },
-  {
-    id: 'prod-8',
-    title: 'Endüstriyel Kireç Çözücü & Hijyenik Yıkama Deterjanı (20L)',
-    category: 'Sarf Malzemeleri',
-    description: 'Yüksek ısılı yıkama sistemleri için rezistans koruyucu profesyonel sıvı yıkama ve kireç önleyici kimyasal.',
-    price: '1.250 ₺',
-    image: 'sprites/logo.png',
-    isFeatured: false
-  }
+  
 ];
 
 function getStoredProducts() {
