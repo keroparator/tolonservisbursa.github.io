@@ -100,7 +100,7 @@ function renderProductCards(products, containerElement) {
       : `https://wa.me/905510007069?text=${encodeURIComponent(product.title + ' hakkında bilgi almak istiyorum.')}`;
 
     const badgeHtml = product.isFeatured 
-      ? `<span class="absolute top-3 left-3 bg-amber-500 text-white text-[10px] font-bold px-2.5 py-1 rounded-md uppercase tracking-wider shadow-sm flex items-center gap-1"><svg class="fa-solid fa-star text-[9px] inline-block align-middle w-3 h-3 max-w-full" fill="currentColor" viewBox="0 0 576 512" aria-hidden="true"><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.6-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg> Öne Çıkan</span>` 
+      ? `<span class="absolute top-3 left-3 bg-amber-500 text-white text-[10px] font-semibold px-2.5 py-1 rounded-md uppercase tracking-wider shadow-sm flex items-center gap-1"><svg class="fa-solid fa-star text-[9px] inline-block align-middle w-3 h-3 max-w-full" fill="currentColor" viewBox="0 0 576 512" aria-hidden="true"><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.6-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg> Öne Çıkan</span>` 
       : '';
 
     const imgSrc = product.image || 'sprites/logo.webp';
@@ -116,7 +116,7 @@ function renderProductCards(products, containerElement) {
         </div>
         <div class="p-5 flex-grow flex flex-col justify-between">
           <div>
-            <h3 class="text-base font-bold text-slate-900 mb-2 group-hover:text-blue-900 transition line-clamp-2">
+            <h3 class="text-base font-extrabold text-slate-900 mb-2 group-hover:text-blue-900 transition line-clamp-2">
               ${escapeHtml(product.title)}
             </h3>
             <p class="text-slate-600 text-xs leading-relaxed mb-4 line-clamp-3">
@@ -124,7 +124,7 @@ function renderProductCards(products, containerElement) {
             </p>
           </div>
           <div class="pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
-            <span class="text-xs font-bold text-blue-900 bg-blue-50 px-2.5 py-1.5 rounded-md border border-blue-100">
+            <span class="text-xs font-semibold text-blue-900 bg-blue-50 px-2.5 py-1.5 rounded-md border border-blue-100">
               Stokta Var
             </span>
             <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold px-3.5 py-2 rounded-md transition flex items-center gap-1.5 shadow-sm">
